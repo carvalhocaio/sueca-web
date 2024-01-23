@@ -1,9 +1,11 @@
 "use client"
 
-import {useState} from "react";
+import {useState, memo} from "react";
 import Card from "@/components/Card";
 
 export default function Home() {
+  const MemoizedCard = memo(Card)
+
   const [currentCard, setCurrentCard] = useState(0);
   const cards = [
     {
@@ -74,26 +76,30 @@ export default function Home() {
     },
     {
       value: 'Dama de Copas',
-      rule: 'Meninas bebem',
-      description: 'Todas as jogadoras devem tomar um gole.',
+      rule: 'Mulheres bebem',
+      description: 'Todas as mulheres devem tomar um gole.',
       image: 'assets/cards/dama-de-copas.png',
     },
     {
       value: 'Rei de Copas',
-      rule: 'Meninos bebem',
-      description: 'Todas os jogadores devem tomar um gole.',
+      rule: 'Homens bebem',
+      description: 'Todas os homens devem tomar um gole.',
       image: 'assets/cards/rei-de-copas.png',
     },
   ]
 
-  const handleCardPress = () => {
+  const handleCardPress = async () => {
     const nextCard = Math.floor(Math.random() * cards.length);
+    const imageToPreload = new Image();
+    imageToPreload.src = `/${cards[nextCard].image}`
+    await imageToPreload.decode()
+
     setCurrentCard(nextCard);
   };
 
   return (
     <div style={styles.container}>
-      <Card
+      <MemoizedCard
         imageSource={cards[currentCard].image}
         rule={cards[currentCard].rule}
         description={cards[currentCard].description}

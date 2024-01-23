@@ -6,7 +6,7 @@ const Card = ({imageSource, rule, description, onPress}) => {
 		<div className="cardContainer" onClick={onPress} style={styles.cardContainer}>
 			<div style={styles.cardContent}>
 				<div style={styles.imageContainer}>
-					<Image src={`/${imageSource}`} alt="Card" width={350} height={500} />
+					<Image src={`/${imageSource}`} alt="Card" width={350} height={500} loading="lazy" />
 				</div>
 				<p style={styles.cardRule}>{rule}</p>
 				<p style={styles.cardDescription}>{description}</p>
@@ -43,7 +43,5 @@ const styles = {
 		textAlign: 'center',
 	},
 };
-
-
 
 export default Card;
