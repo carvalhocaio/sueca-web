@@ -1,95 +1,113 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client"
+
+import {useState} from "react";
+import Card from "@/components/Card";
 
 export default function Home() {
+  const [currentCard, setCurrentCard] = useState(0);
+  const cards = [
+    {
+      value: 'As de Copas',
+      rule: 'Todos bebem',
+      description: 'Todos devem tomar um gole da bebida.',
+      image: 'assets/cards/as-de-copas.png',
+    },
+    {
+      value: 'Dois de Copas',
+      rule: 'Falar qualquer coisa',
+      description: 'Os jogadores devem falar qualquer coisa.',
+      image: 'assets/cards/dois-de-copas.png',
+    },
+    {
+      value: 'Três de Copas',
+      rule: 'Escolha alguém para beber',
+      description: 'O jogador que tirou esta carta escolhe outro jogador para tomar um gole.',
+      image: 'assets/cards/tres-de-copas.png',
+    },
+    {
+      value: 'Quatro de Copas',
+      rule: 'Defina uma regra',
+      description: 'O jogador que tirou esta carta pode criar uma regra que todos devem seguir até o jogador tirar outra carta.',
+      image: 'assets/cards/quatro-de-copas.png',
+    },
+    {
+      value: 'Cinco de Copas',
+      rule: 'Sem "S", "C" ou composto',
+      description: 'Os jogadores não podem usar palavras que comecem com \'S\', \'C\' ou palavras compostas. Quem quebrar a regra toma um gole.',
+      image: 'assets/cards/cinco-de-copas.png',
+    },
+    {
+      value: 'Seis de Copas',
+      rule: 'Fui a freira',
+      description: 'O jogador que tirou esta carta começa dizendo "Fui à feira e comprei..." e menciona um item. O próximo jogador repete e adiciona outro item. O jogo continua até alguém esquecer um item, e essa pessoa toma um gole.',
+      image: 'assets/cards/seis-de-copas.png',
+    },
+    {
+      value: 'Sete de Copas',
+      rule: 'Trocar de nome',
+      description: 'Todos os jogadores devem se referir uns aos outros por um novo nome. Quem esquecer e chamar alguém pelo nome antigo toma um gole.',
+      image: 'assets/cards/sete-de-copas.png',
+    },
+    {
+      value: 'Oito de Copas',
+      rule: 'Responde uma pergunta com outra pergunta',
+      description: 'O jogador que tirou esta carta deve responder todas as perguntas com outra pergunta. Quem esquecer toma um gole.',
+      image: 'assets/cards/oito-de-copas.png',
+    },
+    {
+      value: 'Nove de Copas',
+      rule: 'Imite a dança',
+      description: 'O jogador que tirou esta carta inventa uma dança, e todos os jogadores devem imitá-la e acrescentar um novo passo. Quem não seguir a dança toma um gole.',
+      image: 'assets/cards/nove-de-copas.png',
+    },
+    {
+      value: 'Dez de Copas',
+      rule: 'Desafie alguém',
+      description: 'O jogador que tirou esta carta desafia outro jogador para uma tarefa. Se o desafiado recusar ou falhar, ele toma um gole.',
+      image: 'assets/cards/dez-de-copas.png',
+    },
+    {
+      value: 'Valete de Copas',
+      rule: 'Posição para todos',
+      description: 'O jogador que tirou esta carta escolhe uma posição que será feita em um momento aleatório determinado pelo jogador, e todos os jogadores devem imitá-la. Quem for o último a imitar adequadamente toma um gole.',
+      image: 'assets/cards/valete-de-copas.png',
+    },
+    {
+      value: 'Dama de Copas',
+      rule: 'Meninas bebem',
+      description: 'Todas as jogadoras devem tomar um gole.',
+      image: 'assets/cards/dama-de-copas.png',
+    },
+    {
+      value: 'Rei de Copas',
+      rule: 'Meninos bebem',
+      description: 'Todas os jogadores devem tomar um gole.',
+      image: 'assets/cards/rei-de-copas.png',
+    },
+  ]
+
+  const handleCardPress = () => {
+    const nextCard = Math.floor(Math.random() * cards.length);
+    setCurrentCard(nextCard);
+  };
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div style={styles.container}>
+      <Card
+        imageSource={cards[currentCard].image}
+        rule={cards[currentCard].rule}
+        description={cards[currentCard].description}
+        onPress={handleCardPress}
+      />
+    </div>
+  )
+}
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+const styles = {
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 }
