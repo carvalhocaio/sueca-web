@@ -40,7 +40,7 @@ export default function Home() {
     },
     {
       value: 'Seis de Copas',
-      rule: 'Fui a freira',
+      rule: 'Fui a feira',
       description: 'O jogador que tirou esta carta começa dizendo "Fui à feira e comprei..." e menciona um item. O próximo jogador repete e adiciona outro item. O jogo continua até alguém esquecer um item, e essa pessoa toma um gole.',
       image: 'assets/cards/seis-de-copas.png',
     },
