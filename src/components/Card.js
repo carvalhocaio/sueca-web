@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = ({ imageSource, rule, description, onPress }) => (
   <div className='cardContainer' onClick={onPress} style={styles.cardContainer}>
-    <div style={styles.cardContainer}>
+    <div style={styles.cardContent}>
       <div style={styles.imageContainer}>
         <img src={imageSource} alt='Card' width={350} height={500} loading='lazy' />
       </div>
