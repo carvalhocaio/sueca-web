@@ -27,7 +27,6 @@ const styles = {
     padding: 20,
     borderRadius: 20,
     backgroundColor: "#FFF",
-    boxShadow: "0 0 5px rgba(0, 0, 0, 0.3)",
   },
   imageContainer: {
     margin: 'auto',
