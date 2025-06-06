@@ -84,7 +84,7 @@ export default function HomePage() {
   }
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center"}}>
+    <div style={containerStyle}>
       {currentCard ? (
         <MemoizedCard
           imageSource={currentCard.image}
