@@ -36,10 +36,10 @@ const rules = {
     'rule': 'Responde uma pergunta com outra pergunta',
     'description': 'O jogador que tirou esta carta deve responder todas as perguntas com outra pergunta. Quem esquecer toma um gole.',
   },
-  "9": {
-    'rule': 'Imite a dança',
-    'description': 'O jogador que tirou esta carta inventa uma dança, e todos os jogadores devem imitá-la e acrescentar um novo passo. Quem não seguir a dança toma um gole.',
-  },
+  //"9": {
+    //'rule': 'Imite a dança',
+    //'description': 'O jogador que tirou esta carta inventa uma dança, e todos os jogadores devem imitá-la e acrescentar um novo passo. Quem não seguir a dança toma um gole.',
+  //},
   "10": {
     'rule': 'Desafie alguém',
     'description': 'O jogador que tirou esta carta desafia outro jogador para uma tarefa. Se o desafiado recusar ou falhar, ele toma um gole.',
